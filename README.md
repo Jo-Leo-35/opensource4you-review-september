@@ -7,7 +7,7 @@
 - **First reporting period:** September 1–October 11, 2026
 - **Submission deadline:** October 11, 2026, 23:59
 - **First selection:** October 15, 2026
-- **Latest public-record check:** October 10, 2026, 10:22 (Asia/Taipei, UTC+8)
+- **Latest public-record check:** October 10, 2026, 15:10 (Asia/Taipei, UTC+8)
 
 ### Report Structure
 
@@ -39,7 +39,7 @@ Per the fellowship announcement, all first-cycle work through October 11 belongs
 
 ### Forks and Contribution Status
 
-- **Ray:** [My fork](https://github.com/Jo-Leo-35/ray) is used for investigation and local validation. I have not submitted an upstream PR. The September report records one public validation comment and one authored issue.
+- **Ray:** [My fork](https://github.com/Jo-Leo-35/ray) is used for investigation, local validation, and contribution branches. I submitted [Ray PR #66909](https://github.com/ray-project/ray/pull/66909), an open documentation change linked to the macOS task-memory investigation. The September report records one authored upstream PR, one independently validated PR, and one authored issue.
 - **KubeRay:** [My fork](https://github.com/Jo-Leo-35/kuberay) supports learning and preparation for future reproduction work. No upstream PR, reviewed/validated PR, or issue is recorded for this period.
 
 I use Chi-Sheng Liu's [Git workflow guide for open-source contributions](https://chishengliu.com/zh-tw/posts/opensource-git-operations/) as a reference for working in a fork, separating working branches, synchronizing upstream changes, and preparing a PR after validation. A fork or local experiment is recorded as preparation/investigation, not as an upstream PR.
@@ -58,7 +58,7 @@ I use Chi-Sheng Liu's [Git workflow guide for open-source contributions](https:/
 - **首次報告範圍：** 2026 年 9 月 1 日至 10 月 11 日
 - **繳交期限：** 2026 年 10 月 11 日 23:59
 - **首次評選：** 2026 年 10 月 15 日
-- **最近一次公開紀錄查核：** 2026 年 10 月 10 日 10:22（Asia/Taipei，UTC+8）
+- **最近一次公開紀錄查核：** 2026 年 10 月 10 日 15:10（Asia/Taipei，UTC+8）
 
 ### 報告結構
 
@@ -90,7 +90,7 @@ GitHub Public Repo
 
 ### Fork 與貢獻狀態
 
-- **Ray：** 使用[個人 fork](https://github.com/Jo-Leo-35/ray)進行問題調查與本機驗證，目前尚未向上游提交 PR。September 報告記錄一項公開的 PR 驗證留言與一個自行提出的 issue。
+- **Ray：** 使用[個人 fork](https://github.com/Jo-Leo-35/ray)進行問題調查、本機驗證與貢獻分支開發。我已提交 [Ray PR #66909](https://github.com/ray-project/ray/pull/66909)；這是一項仍為 open、並與 macOS task 記憶體調查相關的文件修正。September 報告記錄一個自行提交的上游 PR、一個獨立驗證的 PR，以及一個自行提出的 issue。
 - **KubeRay：** 已建立[個人 fork](https://github.com/Jo-Leo-35/kuberay)，用於學習與後續問題重現的準備。本期尚無向上游提交的 PR、審閱／驗證的 PR 或 issue 紀錄。
 
 我以劉奇聖的[開發開源專案常用的 Git 操作指南](https://chishengliu.com/zh-tw/posts/opensource-git-operations/)作為參考，學習在 fork 中工作、分開工作分支、同步上游變更，以及完成驗證後準備 PR。Fork 或本機實驗歸入準備與調查工作，不計為已提交上游的 PR。
