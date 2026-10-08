@@ -1,0 +1,15 @@
+# resourcequota.yaml — namespace 層級的總配額（對應 Lesson 4）
+# 像夜店保鑣：逐 Pod 累加該 namespace 的 requests/limits 總和，超過就「拒絕新 Pod」。
+# 注意：一旦 namespace 有 ResourceQuota，該 namespace 的每個容器通常都「必須」設 requests/limits，否則會被拒。
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: <QUOTA_NAME>
+  namespace: <NS>
+spec:
+  hard:
+    requests.memory: "<400Mi>"   # 所有 Pod 的 memory requests 總和上限
+    limits.memory:   "<500Mi>"   # 所有 Pod 的 memory limits 總和上限
+    requests.cpu:    "<1>"       # 選用：CPU requests 總和（1 = 1 core）
+    limits.cpu:      "<2>"       # 選用：CPU limits 總和
+    pods:            "<10>"      # 選用：此 namespace 最多幾個 Pod

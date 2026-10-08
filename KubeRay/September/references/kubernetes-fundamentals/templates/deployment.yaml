@@ -1,0 +1,33 @@
+# deployment.yaml — 大規模管理應用（對應 Lesson 8）
+# 為什麼用 Deployment 而不是裸 Pod：self-healing（掛了自動補）、scaling（改 replicas）、
+#   版本管理（rolling update + rollback）。責任鏈：Deployment → ReplicaSet → Pod。
+# ⚠️ 兩層 metadata / 兩層 spec，最容易搞混：
+#   外層 = Deployment 本身；template 以下 = 要造出的 Pod。
+#   鐵律：template.metadata.labels 必須與 selector.matchLabels 一致，否則 Pod 不被認領。
+apiVersion: apps/v1          # Deployment 屬 apps/v1（不是 v1！）
+kind: Deployment
+metadata:                    # ← 外層：Deployment 本身的 metadata
+  name: <APP_NAME>
+  labels:
+    app: <APP_NAME>         # Deployment 自身的 label（選用）
+spec:                        # ← 外層：Deployment 本身的 spec
+  replicas: <REPLICAS>       # 期望副本數；改這裡再 apply 即可擴縮
+  selector:
+    matchLabels:
+      app: <APP_NAME>       # 認領條件：帶此 label 的 Pod 都歸我管
+  template:                  # ← template 以下描述「要造出的 Pod」
+    metadata:
+      labels:
+        app: <APP_NAME>     # 必須與上面 selector.matchLabels 一致！
+    spec:                    # ← 這是「Pod 的 spec」
+      containers:
+        - name: <APP_NAME>
+          image: <IMAGE>:<TAG>   # 指定明確 tag，避免 latest 造成不可重現
+          ports:
+            - containerPort: <PORT>
+# 常用操作：
+#   kubectl scale deployment/<APP_NAME> --replicas=<N>            # 擴縮
+#   kubectl set image deployment/<APP_NAME> <APP_NAME>=<IMAGE>:<NEW_TAG>   # 觸發 rolling update
+#   kubectl rollout status  deployment/<APP_NAME>                 # 看進度
+#   kubectl rollout history deployment/<APP_NAME>                 # 看版本
+#   kubectl rollout undo    deployment/<APP_NAME>                 # 回滾上一版

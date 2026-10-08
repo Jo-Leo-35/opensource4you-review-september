@@ -1,0 +1,19 @@
+# pod-with-resources.yaml — 在容器上設定 requests / limits（對應 Lesson 4）
+# requests = 排程時保證的下限；limits = 執行期硬上限。鐵律：limits >= requests。
+# CPU 單位：1 core = 1000m（millicore），250m = 0.25 core。memory：Mi/Gi。
+apiVersion: v1
+kind: Pod
+metadata:
+  name: <APP_NAME>
+  namespace: <NS>
+spec:
+  containers:
+    - name: <APP_NAME>
+      image: <IMAGE>:<TAG>
+      resources:            # 注意：resources 在「container 層級」，逐容器設定
+        requests:           # 保證下限（影響排程；沒有 node 滿足就 Pending）
+          memory: "<64Mi>"
+          cpu: "<250m>"
+        limits:             # 硬上限（超過 memory 會被 OOMKilled）
+          memory: "<128Mi>" # 建議約為 request 的兩倍起跳，依實測調整
+          cpu: "<500m>"

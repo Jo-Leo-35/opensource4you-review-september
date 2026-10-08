@@ -1,0 +1,9 @@
+# namespace.yaml — 宣告式建立 namespace（對應 Lesson 3）
+# 效果等同命令式：kubectl create namespace <NS>
+# 但寫成 manifest 可納入版控 / GitOps。
+apiVersion: v1
+kind: Namespace            # 這份 manifest 描述的物件類型是 Namespace 本身
+metadata:
+  name: <NS>              # namespace 名字（小寫字母/數字/連字號）
+  labels:
+    environment: <ENV>   # 慣用做法：用 label 標註用途，方便後續選取與治理

@@ -1,0 +1,22 @@
+# service-clusterip.yaml — 叢集內部固定入口 + 服務發現（對應 Lesson 10）
+# 為什麼需要：Pod IP 是「不斷移動的目標」（重建就變）。Service 給一個穩定的虛擬 IP 與 DNS 名稱，
+#   並動態追蹤後端 Pod 的 endpoints（用 selector 靠 label 選中）。
+# ClusterIP（預設型別）：只在叢集內部可達。同 namespace 直接用 <service 名稱> 連；
+#   跨 namespace 用 <svc>.<ns>.svc.cluster.local。
+apiVersion: v1
+kind: Service
+metadata:
+  name: <SERVICE_NAME>       # 這個名字就是叢集內的 DNS 名稱
+  namespace: <NS>
+spec:
+  type: ClusterIP            # 預設；可省略
+  selector:
+    app: <APP_NAME>         # 用 label 選中後端 Pod（要與 Pod/Deployment 的 label 一致，否則 endpoints 為空）
+  ports:
+    - name: <web>
+      port: <SERVICE_PORT>   # Service 自身開放的 port（client 連這個）
+      targetPort: <POD_PORT> # 後端「容器」的 port（= containerPort）
+    # 一個 Service 可映射多個 port：
+    # - name: <other>
+    #   port: <4444>
+    #   targetPort: <8888>

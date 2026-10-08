@@ -1,0 +1,32 @@
+# pod-with-probes.yaml — 帶健康探針的 Pod（對應 Lesson 5）
+# Liveness：連續失敗 → 殺掉並「重啟容器」。
+# Readiness：連續失敗 → 把 Pod 從 Service 流量目標「移除」（不殺容器）。
+# 兩者寫法幾乎相同，差別只在「失敗後的動作」。探針都在 container 層級。
+apiVersion: v1
+kind: Pod
+metadata:
+  name: <APP_NAME>
+  labels:
+    app: <APP_NAME>
+spec:
+  containers:
+    - name: <APP_NAME>
+      image: <IMAGE>:<TAG>
+      ports:
+        - containerPort: <PORT>
+      livenessProbe:               # 判斷「還活著嗎」；壞了就重啟容器
+        httpGet:                   # 探測方法：對某 port 的某 path 發 HTTP GET
+          path: <HEALTH_PATH>      # 例：/healthz
+          port: <PORT>
+        initialDelaySeconds: 2     # Pod 建立後等幾秒才第一次探（暖機，太短會誤殺）
+        periodSeconds: 5           # 之後每幾秒探一次
+        timeoutSeconds: 1          # 一次探測的逾時
+        failureThreshold: 3        # 連續幾次失敗才判定失敗
+      readinessProbe:              # 判斷「可以接流量了嗎」；壞了只切離流量、不殺容器
+        httpGet:
+          path: <READY_PATH>       # 可與 liveness 相同或不同（例：/ready）
+          port: <PORT>
+        initialDelaySeconds: 2
+        periodSeconds: 5
+        timeoutSeconds: 1
+        failureThreshold: 3

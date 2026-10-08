@@ -1,0 +1,36 @@
+# pvc-and-pod.yaml — PVC（代表「存取」）+ 掛進 Pod（對應 Lesson 9）
+# 一份檔案用 --- 分隔多份文件，一次 kubectl apply 全部套用。
+# PVC 綁定 PV 的最簡條件：相同的 storageClassName + 相容的 accessModes + 容量足夠。
+# 掛載兩步驟（與 ConfigMap/Secret 相同）：spec.volumes 宣告 → container.volumeMounts 掛進去。
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: <PVC_NAME>
+  namespace: <NS>
+spec:
+  storageClassName: <STORAGE_CLASS>    # 與 PV 相同 → 據此綁定
+  accessModes:
+    - ReadWriteOnce                    # 與 PV 相容
+  resources:
+    requests:
+      storage: <1Gi>                   # 要求容量（不能超過 PV 的 capacity；不足時會拿到 PV 實際大小）
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: <APP_NAME>
+  namespace: <NS>
+spec:
+  containers:
+    - name: <APP_NAME>
+      image: <IMAGE>:<TAG>
+      volumeMounts:                    # Step 2（container 層級）
+        - name: <VOLUME_NAME>          # 對上下方 volumes 的 name
+          mountPath: <MOUNT_DIR>       # 容器內存取點，例：/data
+  volumes:                             # Step 1（pod 的 spec 層級，與 containers 同層）
+    - name: <VOLUME_NAME>
+      persistentVolumeClaim:
+        claimName: <PVC_NAME>          # 引用上面的 PVC
+  # nodeSelector:                      # 選用：只在非用不可時才強制排程到特定 node
+  #   kubernetes.io/hostname: <NODE>   # hostPath 場景常需綁定到資料所在的 node

@@ -1,0 +1,42 @@
+# networkpolicy.yaml — 控制 Pod 之間的流量（對應 Lesson 10）
+# 心智模型：預設全通；一旦某 Pod 被任一 NetworkPolicy 選中且列了 policyTypes，
+#   「未明列放行」的流量就全擋（default-deny 現象）→ 需逐步加白名單。
+# 需要叢集的 CNI 支援 NetworkPolicy，否則寫了也不生效。
+#
+# ── 範例 A：Default-Deny（先全擋，之後再逐步放行）──────────────
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny
+  namespace: <NS>            # NetworkPolicy 綁定 namespace
+spec:
+  podSelector: {}            # 空 {} = 選中此 namespace 內「所有」Pod
+  policyTypes:               # 宣告要控制的方向
+    - Ingress
+    - Egress
+  # 未給任何 ingress/egress 規則 => 白名單為空 => 全部拒絕
+---
+# ── 範例 B：精準白名單（只放行 <FROM_LABEL> 的 Pod 進入 <APP_NAME>）──
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-<FROM>-to-<APP_NAME>
+  namespace: <NS>
+spec:
+  podSelector:
+    matchLabels:
+      app: <APP_NAME>       # 只管這些 Pod（受保護的一方）
+  policyTypes:
+    - Ingress               # 只關心進入流量
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              <FROM_KEY>: <FROM_VAL>   # 只允許帶此 label 的 Pod 進入
+      ports:
+        - protocol: TCP
+          port: <POD_PORT>            # 選用：只放行此 port
+# ⚠️ OR / AND 陷阱（最常出錯）：
+#   from 清單裡「分開的 - 元素」是 OR（滿足任一即放行）；
+#   把 namespaceSelector 與 podSelector 寫在「同一個 - 元素」下則是 AND（要同時滿足）。
+#   若 policyTypes 含 Egress，出向（含 DNS）也要明列放行，否則連 DNS 都不通。

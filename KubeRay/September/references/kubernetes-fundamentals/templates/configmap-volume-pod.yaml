@@ -1,0 +1,22 @@
+# configmap-volume-pod.yaml — 把 ConfigMap 掛進 Pod（對應 Lesson 5）
+# 掛載鏈：ConfigMap → Volume → Pod → Container 的 mountPath。兩步驟：
+#   Step 1（pod 層級）：在 spec.volumes 宣告一個由 configMap 來的 volume。
+#   Step 2（container 層級）：在 volumeMounts 把該 volume 掛到容器內某目錄。
+# ⚠️ 陷阱：mountPath 指向「既有目錄」會覆蓋整個目錄內容 → CrashLoopBackOff。
+#         只想掛「單一檔案」到既有目錄，改用 subPath（見下方註解）。
+apiVersion: v1
+kind: Pod
+metadata:
+  name: <APP_NAME>
+spec:
+  containers:
+    - name: <APP_NAME>
+      image: <IMAGE>:<TAG>
+      volumeMounts:                 # Step 2：在 container 層級（與 image 同層）
+        - name: <VOLUME_NAME>       # 必須大小寫完全對上下方 volumes 的 name
+          mountPath: <MOUNT_DIR>    # 掛到容器內哪個目錄，例：/config（目錄不存在會自動建立）
+          # subPath: <FILE_NAME>    # 選用：只掛 ConfigMap 裡的單一檔案，避免覆蓋既有目錄
+  volumes:                          # Step 1：在 pod 的 spec 層級（與 containers 同層）
+    - name: <VOLUME_NAME>
+      configMap:                    # 注意大寫 M（camelCase 敏感！）
+        name: <CM_NAME>            # 要掛的 ConfigMap 名稱

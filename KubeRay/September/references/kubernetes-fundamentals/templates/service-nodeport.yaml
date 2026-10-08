@@ -1,0 +1,16 @@
+# service-nodeport.yaml — 最原始的對外暴露方式（對應 Lesson 10）
+# NodePort：在「每個 node」上開一個固定 port（範圍 30000–32767），從 <node IP>:<nodePort> 即可存取，
+#   不需要 kubectl 權限。適合本機/測試；正式對外通常改用 LoadBalancer 或 Ingress（見 gke-deploy）。
+apiVersion: v1
+kind: Service
+metadata:
+  name: <SERVICE_NAME>
+  namespace: <NS>
+spec:
+  type: NodePort            # 必須明確指定；不寫會退回 ClusterIP
+  selector:
+    app: <APP_NAME>
+  ports:
+    - port: <SERVICE_PORT>   # Service port（叢集內）
+      targetPort: <POD_PORT> # 容器 port
+      nodePort: <30337>      # 每個 node 對外開放的 port（30000–32767；不寫則自動指派）

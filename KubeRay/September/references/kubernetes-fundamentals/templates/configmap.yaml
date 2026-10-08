@@ -1,0 +1,17 @@
+# configmap.yaml — 把設定與容器解耦（對應 Lesson 5）
+# ConfigMap 存「非機密」的設定：環境變數值、設定檔內容。機密請用 Secret。
+# 命令式對照：
+#   kubectl create configmap <NAME> --from-file=<FILE>          # 從檔案
+#   kubectl create configmap <NAME> --from-literal=KEY=VALUE    # 從字面值
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: <CM_NAME>
+  namespace: <NS>          # 與使用它的 Pod 必須同 namespace
+data:
+  # 形式一：key: 純量值（常用來注入單一環境變數）
+  <KEY>: "<VALUE>"
+  # 形式二：key: 整段檔案內容（用 | 保留換行；常掛成 volume 內的一個檔案）
+  <FILE_NAME>: |
+    <第一行內容>
+    <第二行內容>

@@ -1,0 +1,16 @@
+# pv.yaml — PersistentVolume：代表「儲存本身」（對應 Lesson 9）
+# 儲存四段路徑：StorageClass →(定義)→ PV →(被 PVC 綁定)→ PVC →(被 Pod 引用)→ Pod。
+# 注意：本範例用 hostPath（node 本機目錄），僅適合單機 / 教學 demo；
+#       生產環境多用「動態佈建」——只寫 PVC + StorageClass，由 provisioner 自動生 PV，不必手寫 PV。
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: <PV_NAME>
+spec:
+  storageClassName: <STORAGE_CLASS>   # PVC 靠「相同的 storageClassName」來匹配這個 PV（例：manual）
+  capacity:
+    storage: <2Gi>                     # 這個 PV 有多大
+  accessModes:
+    - ReadWriteOnce                    # RWO：同一時間單一 node 讀寫（最常見）；另有 ROX / RWX
+  hostPath:                            # ⚠️ 僅示範/單機：資料實體落在 node 的此目錄
+    path: <HOST_DIR>                   # 例：/mnt/data

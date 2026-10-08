@@ -1,0 +1,17 @@
+# pod.yaml — 最小可用的 Pod（對應 Lesson 2 / 3）
+# 用法：把 <尖括號> 佔位符換成你的值，然後：
+#   kubectl apply -f pod.yaml --dry-run=client -o yaml   # 先預覽
+#   kubectl apply -f pod.yaml                             # 再套用
+apiVersion: v1              # Pod 屬核心組 v1（填 apps/v1 會被拒）
+kind: Pod                   # 大小寫敏感！必須是 Pod，不是 pod
+metadata:
+  name: <APP_NAME>         # namespace 內唯一；只能小寫字母/數字/連字號
+  # namespace: <NS>        # 選用：不寫就進 default（也可用 kubectl -n 指定）
+  labels:                  # label 縮排在 metadata 之下，供 Service/Deployment 用 selector 選取
+    app: <APP_NAME>
+spec:
+  containers:              # 這是一個 list，每個容器一個 dash
+    - name: <APP_NAME>
+      image: <IMAGE>:<TAG> # ⚠️ 最容易打錯的欄位；務必指定明確 tag，別用 latest
+      ports:               # ports 也是 list
+        - containerPort: <PORT>   # 容器對外開放的埠
