@@ -1,39 +1,30 @@
 # Monthly Contribution Reports / 每月貢獻報告
 
 - **Contributor / 貢獻者:** [Jo-Leo-35](https://github.com/Jo-Leo-35)
-- **Fellowship start date / 加入日期:** September 28, 2026 / 2026 年 9 月 28 日
-- **Covered period / 本次整理期間:** September 28–October 8, 2026 / 2026 年 9 月 28 日至 10 月 8 日
+- **Fellowship start date / 加入日期:** September 28, 2026
+- **First submission period / 首次報告範圍:** September 1–October 11, 2026
+- **Submission deadline / 繳交期限:** October 11, 2026, 23:59
+- **First selection / 首次評選:** October 15, 2026
 
-I joined the fellowship on September 28. To make the timeline clear, the report is separated by month: September records onboarding and foundational learning only, while October records the public Ray work completed from October 1 through October 8 and the current KubeRay learning status.
+The fellowship announcement requires the entire first reporting period to be recorded under `September/report.md`, including work completed in early October.
 
-我在 9 月 28 日才加入 fellowship。為了清楚呈現時間線，報告依月份拆開：9 月只記錄加入後的入門與基礎學習；10 月則記錄 10 月 1 日至 10 月 8 日已完成的 Ray 公開活動，以及目前的 KubeRay 學習狀態。
+依公告，首次報告的 9/1–10/11 內容應整理在 `September/report.md`。加入日期為 9/28，實際參與期間另行註明，不改動公告要求的報告範圍。
 
-## Directory Structure / 目錄結構
+## Ray
 
-```text
-opensource4you-review-september/
-├── README.md
-├── Ray/
-│   ├── September/
-│   │   └── report.md
-│   └── October/
-│       └── report.md
-└── KubeRay/
-    ├── September/
-    │   ├── report.md
-    │   └── references/
-    │       └── kubernetes-fundamentals/  # 31 learning-reference files
-    └── October/
-        └── report.md
-```
+- **[September submission report](Ray/September/report.md):** Consolidated onboarding, issue #66729, and independent validation of PR #66878. Public activity checked on October 10, 2026; refresh once more before submission.
+- **[Verification and handoff checklist](Ray/September/follow-up.md):** Evidence, current PR revision, and pending validation tasks for the next work session.
+- **[October placeholder](Ray/October/report.md):** Points to the first submission report; does not duplicate its contribution counts.
 
-## Reports / 報告
+## KubeRay
 
-| Month | Ray | KubeRay |
-| --- | --- | --- |
-| September 2026 | [Learning and onboarding](Ray/September/report.md) | [Kubernetes learning and onboarding](KubeRay/September/report.md) |
-| October 2026 | [Issue and PR validation](Ray/October/report.md) | [Ongoing learning status](KubeRay/October/report.md) |
+The KubeRay entries below retain their original calendar-month organization. They still need consolidation under `KubeRay/September/report.md` for the first submission; their activity has not been re-audited in this Ray update.
 
-The 31 files under [`KubeRay/September/references/kubernetes-fundamentals/`](KubeRay/September/references/kubernetes-fundamentals/README.md) document the Kubernetes material I am actively studying. This ongoing learning is preparation for future KubeRay work, although it is not counted as a completed KubeRay code contribution.
+| Existing entry | Recorded scope |
+| --- | --- |
+| [September report](KubeRay/September/report.md) | September 28–30 onboarding and Kubernetes learning |
+| [October report](KubeRay/October/report.md) | October 1–8 ongoing learning and preparation |
 
-`KubeRay/September/references/kubernetes-fundamentals/` 中的 31 份檔案，記錄我目前正在進行的 Kubernetes 學習。這段持續中的學習是未來參與 KubeRay 工作的準備；雖然不計為已完成的 KubeRay 程式碼貢獻，但仍是我在這段期間實際投入的工作。
+The [Kubernetes Fundamentals reference](KubeRay/September/references/kubernetes-fundamentals/README.md) contains 31 files, including ten lesson notes, command and troubleshooting references, a preflight script, and YAML examples. It records the learning material being studied, not completion of every lesson or a completed KubeRay engineering contribution.
+
+KubeRay 本次保留原資料；送出同一個 repo 給兩位導師前，仍需將其 10 月初內容合併到 September 報告，並確認最新學習進度。
