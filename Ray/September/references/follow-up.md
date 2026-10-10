@@ -1,6 +1,6 @@
 # Ray Verification and Handoff Checklist
 
-This working checklist accompanies the [September report](report.md). It separates historical evidence from work that still needs execution.
+This working checklist accompanies the [September report](../report.md). It separates historical evidence from work that still needs execution.
 
 - **Audit date:** October 10, 2026, approximately 10:05 Asia/Taipei (02:05 UTC).
 - **Report repository:** [Jo-Leo-35/opensource4you-review-september](https://github.com/Jo-Leo-35/opensource4you-review-september).
@@ -35,8 +35,8 @@ For the commented and reviewed queries, check the dates of the contributor's com
 - [x] Distinguish an authored PR, independent validation comment, and formal GitHub review.
 - [ ] Refresh the public activity and upstream status through the submission cutoff. Add only completed, evidenced work and update the snapshot timestamp.
 - [ ] Confirm any additional October 9–11 work with dated links or execution logs; do not assume there was no activity merely because it is absent from the old report.
-- [ ] If submitting both projects, consolidate KubeRay's existing October learning entry into its September report and update the README. Its learning progress and public activity were not re-audited here.
-- [ ] Review the Markdown changes, then commit/publish the report update when requested. Local edits are not visible at the public repository URL until pushed.
+- [x] Consolidate KubeRay's early October learning entry into its September report and update the README. Public activity was rechecked on October 10; learning progress remains based on the existing reports.
+- [x] Publish the initial consolidated Ray report: commit `75992d5` was pushed to `main`. Refresh and publish later report changes separately.
 
 The engineering tasks below are follow-ups, not prerequisites for honestly reporting the contributions already completed.
 

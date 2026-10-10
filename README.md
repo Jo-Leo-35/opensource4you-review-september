@@ -1,30 +1,101 @@
 # Monthly Contribution Reports / 每月貢獻報告
 
-- **Contributor / 貢獻者:** [Jo-Leo-35](https://github.com/Jo-Leo-35)
-- **Fellowship start date / 加入日期:** September 28, 2026
-- **First submission period / 首次報告範圍:** September 1–October 11, 2026
-- **Submission deadline / 繳交期限:** October 11, 2026, 23:59
-- **First selection / 首次評選:** October 15, 2026
+## English Version
 
-The fellowship announcement requires the entire first reporting period to be recorded under `September/report.md`, including work completed in early October.
+- **Contributor:** [Jo-Leo-35](https://github.com/Jo-Leo-35)
+- **Fellowship start date:** September 28, 2026
+- **First reporting period:** September 1–October 11, 2026
+- **Submission deadline:** October 11, 2026, 23:59
+- **First selection:** October 15, 2026
+- **Latest public-record check:** October 10, 2026, 10:22 (Asia/Taipei, UTC+8)
 
-依公告，首次報告的 9/1–10/11 內容應整理在 `September/report.md`。加入日期為 9/28，實際參與期間另行註明，不改動公告要求的報告範圍。
+### Report Structure
 
-## Ray
+```text
+GitHub Public Repo
+├── Ray/
+│   ├── September/
+│   │   └── report.md
+│   └── October/
+│       └── report.md
+│
+└── KubeRay/
+    ├── September/
+    │   └── report.md
+    └── October/
+        └── report.md
+```
 
-- **[September submission report](Ray/September/report.md):** Consolidated onboarding, issue #66729, and independent validation of PR #66878. Public activity checked on October 10, 2026; refresh once more before submission.
-- **[Verification and handoff checklist](Ray/September/follow-up.md):** Evidence, current PR revision, and pending validation tasks for the next work session.
-- **[October placeholder](Ray/October/report.md):** Points to the first submission report; does not duplicate its contribution counts.
+Each report presents the English version first, followed by its Traditional Chinese translation. Supporting material is kept separately under `references/` and retains its existing format.
 
-## KubeRay
+### Reports
 
-The KubeRay entries below retain their original calendar-month organization. They still need consolidation under `KubeRay/September/report.md` for the first submission; their activity has not been re-audited in this Ray update.
+| Reporting folder | Ray | KubeRay |
+| --- | --- | --- |
+| September | [First submission report](Ray/September/report.md) | [First submission report](KubeRay/September/report.md) |
+| October | [Next-cycle placeholder](Ray/October/report.md) | [Next-cycle placeholder](KubeRay/October/report.md) |
 
-| Existing entry | Recorded scope |
-| --- | --- |
-| [September report](KubeRay/September/report.md) | September 28–30 onboarding and Kubernetes learning |
-| [October report](KubeRay/October/report.md) | October 1–8 ongoing learning and preparation |
+Per the fellowship announcement, all first-cycle work through October 11 belongs in the September reports, including early October activity. I joined on September 28. These reports reflect available evidence as of the latest check; they will need a final update for any additional work before the deadline. October is reserved for the next cycle, whose dates will follow the organizers' instructions.
 
-The [Kubernetes Fundamentals reference](KubeRay/September/references/kubernetes-fundamentals/README.md) contains 31 files, including ten lesson notes, command and troubleshooting references, a preflight script, and YAML examples. It records the learning material being studied, not completion of every lesson or a completed KubeRay engineering contribution.
+### Forks and Contribution Status
 
-KubeRay 本次保留原資料；送出同一個 repo 給兩位導師前，仍需將其 10 月初內容合併到 September 報告，並確認最新學習進度。
+- **Ray:** [My fork](https://github.com/Jo-Leo-35/ray) is used for investigation and local validation. I have not submitted an upstream PR. The September report records one public validation comment and one authored issue.
+- **KubeRay:** [My fork](https://github.com/Jo-Leo-35/kuberay) supports learning and preparation for future reproduction work. No upstream PR, reviewed/validated PR, or issue is recorded for this period.
+
+I use Chi-Sheng Liu's [Git workflow guide for open-source contributions](https://chishengliu.com/zh-tw/posts/opensource-git-operations/) as a reference for working in a fork, separating working branches, synchronizing upstream changes, and preparing a PR after validation. A fork or local experiment is recorded as preparation/investigation, not as an upstream PR.
+
+### Supporting References
+
+- [Ray verification notes and pending work](Ray/September/references/follow-up.md)
+- [Kubernetes Fundamentals learning material](KubeRay/September/references/kubernetes-fundamentals/README.md)
+
+---
+
+## 中文版本
+
+- **貢獻者：** [Jo-Leo-35](https://github.com/Jo-Leo-35)
+- **加入 fellowship 日期：** 2026 年 9 月 28 日
+- **首次報告範圍：** 2026 年 9 月 1 日至 10 月 11 日
+- **繳交期限：** 2026 年 10 月 11 日 23:59
+- **首次評選：** 2026 年 10 月 15 日
+- **最近一次公開紀錄查核：** 2026 年 10 月 10 日 10:22（Asia/Taipei，UTC+8）
+
+### 報告結構
+
+```text
+GitHub Public Repo
+├── Ray/
+│   ├── September/
+│   │   └── report.md
+│   └── October/
+│       └── report.md
+│
+└── KubeRay/
+    ├── September/
+    │   └── report.md
+    └── October/
+        └── report.md
+```
+
+每份報告先呈現英文，後面附上對應的繁體中文翻譯。補充資料另放在 `references/`，保留既有格式。
+
+### 報告連結
+
+| 報告資料夾 | Ray | KubeRay |
+| --- | --- | --- |
+| September | [首次繳交報告](Ray/September/report.md) | [首次繳交報告](KubeRay/September/report.md) |
+| October | [下一期預留報告](Ray/October/report.md) | [下一期預留報告](KubeRay/October/report.md) |
+
+依 fellowship 公告，首次範圍內截至 10 月 11 日的工作都放在 September 報告，包括 10 月初的活動。我在 9 月 28 日加入。報告依最近一次查核時已有的證據整理；若截止前有新增工作，仍需補上最後更新。October 留待下一期使用，日期依主辦單位後續公告填寫。
+
+### Fork 與貢獻狀態
+
+- **Ray：** 使用[個人 fork](https://github.com/Jo-Leo-35/ray)進行問題調查與本機驗證，目前尚未向上游提交 PR。September 報告記錄一項公開的 PR 驗證留言與一個自行提出的 issue。
+- **KubeRay：** 已建立[個人 fork](https://github.com/Jo-Leo-35/kuberay)，用於學習與後續問題重現的準備。本期尚無向上游提交的 PR、審閱／驗證的 PR 或 issue 紀錄。
+
+我以劉奇聖的[開發開源專案常用的 Git 操作指南](https://chishengliu.com/zh-tw/posts/opensource-git-operations/)作為參考，學習在 fork 中工作、分開工作分支、同步上游變更，以及完成驗證後準備 PR。Fork 或本機實驗歸入準備與調查工作，不計為已提交上游的 PR。
+
+### 補充參考資料
+
+- [Ray 驗證筆記與待辦事項](Ray/September/references/follow-up.md)
+- [Kubernetes Fundamentals 學習資料](KubeRay/September/references/kubernetes-fundamentals/README.md)

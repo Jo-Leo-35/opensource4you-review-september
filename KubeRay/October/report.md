@@ -1,65 +1,83 @@
-# KubeRay Monthly Contribution Report — October 2026
-
-- **Contributor:** [Jo-Leo-35](https://github.com/Jo-Leo-35)
-- **Project:** [KubeRay](https://github.com/ray-project/kuberay)
-- **Reporting period:** October 1–8, 2026
+# KubeRay Monthly Contribution Report — October 2026 / KubeRay 每月貢獻報告 — 2026 年 10 月
 
 ## English Version
 
+- **Contributor:** [Jo-Leo-35](https://github.com/Jo-Leo-35)
+- **Project:** [KubeRay](https://github.com/ray-project/kuberay)
+- **Reporting period:** Pending the organizers' next-cycle instructions
+- **Report status:** Placeholder; no next-cycle activity recorded yet
+
 ### Summary
 
-From October 1 through October 8, I continued learning the Kubernetes concepts required for KubeRay and organized my course materials into a public, reviewable reference. My KubeRay work is still at the learning and onboarding stage; I do not yet have a public KubeRay engineering contribution to report.
-
-### Work Completed
-
-- Continued reviewing Kubernetes fundamentals relevant to KubeRay, including Pods, Namespaces, resource requests and limits, configuration, Deployments, storage, networking, and troubleshooting.
-- Prepared a public copy of the 31-file Kubernetes Fundamentals reference so reviewers can see the approximate scope of the material being studied.
-- Began connecting Kubernetes concepts to KubeRay resources and controller-based workflows at a conceptual level.
+The first submission covers September 1–October 11, 2026. All documented work within that period is consolidated in the [September report](../September/report.md). This file is reserved for the next reporting cycle.
 
 ### Contribution Status
 
 | Contribution type | Count |
-| --- | ---: |
-| Pull requests authored | 0 |
-| Pull requests reviewed or validated | 0 |
-| Issues opened | 0 |
+| --- | --- |
+| Pull requests authored and submitted upstream | Not reported yet |
+| Pull requests independently validated | Not reported yet |
+| Formal GitHub PR reviews submitted | Not reported yet |
+| Issues opened | Not reported yet |
 
-This is active learning and preparation work rather than a completed KubeRay code contribution. It records the concrete effort I made during this period while building the knowledge needed for later engineering work.
+### Pull Requests
 
-### Reference and Next Steps
+No next-cycle PR activity has been recorded yet. Fork and preparation work covered by the first submission is described in the September report.
 
-- [Public Kubernetes Fundamentals learning reference](../September/references/kubernetes-fundamentals/README.md)
-- Continue the selected lessons and hands-on exercises.
-- Read KubeRay's contributor documentation and prepare the development environment.
-- After the initial learning stage, select a small KubeRay issue to reproduce and validate before proposing a narrowly scoped fix.
+### Reviewed PR / Independent Validation
+
+No next-cycle review or validation has been recorded yet. First-cycle activity will not be counted again here.
+
+### Other Contributions
+
+No next-cycle learning or other contribution has been recorded yet.
+
+### Pending Validation and Next Steps
+
+Confirm the next reporting period, then add dated PRs, reviews, validation results, and other contributions using the same format. Keep pending work separate from completed work.
+
+### References
+
+- [September report and supporting references](../September/report.md)
 
 ---
 
 ## 中文版本
 
+- **貢獻者：** [Jo-Leo-35](https://github.com/Jo-Leo-35)
+- **專案：** [KubeRay](https://github.com/ray-project/kuberay)
+- **報告範圍：** 待主辦單位公告下一期日期
+- **報告狀態：** 預留頁面；尚未記錄下一期活動
+
 ### 摘要
 
-10 月 1 日至 10 月 8 日，我持續學習 KubeRay 所需的 Kubernetes 概念，並把課程資料整理成可公開查閱的參考內容。目前 KubeRay 仍處於學習與入門階段，尚無公開的 KubeRay 工程貢獻可以回報。
-
-### 已完成事項
-
-- 持續閱讀與 KubeRay 有關的 Kubernetes 基礎，包括 Pod、Namespace、resource request／limit、設定管理、Deployment、儲存、網路與問題排查。
-- 準備 31 份 Kubernetes Fundamentals 公開參考檔案，讓審閱者可以大致了解目前接觸的學習範圍。
-- 開始從概念上連結 Kubernetes 基礎與 KubeRay resource、controller 工作流程之間的關係。
+首次繳交範圍為 2026 年 9 月 1 日至 10 月 11 日。該期間已有紀錄的工作統一放在 [September 報告](../September/report.md)。本檔案預留給下一個報告週期。
 
 ### 貢獻狀態
 
 | 貢獻類型 | 數量 |
-| --- | ---: |
-| 自行提交的 PR | 0 |
-| 審閱或驗證的 PR | 0 |
-| 提出的 issue | 0 |
+| --- | --- |
+| 自行撰寫並向上游提交的 PR | 尚未填報 |
+| 獨立驗證的 PR | 尚未填報 |
+| 在 GitHub 提交的正式 PR review | 尚未填報 |
+| 提出的 issue | 尚未填報 |
 
-這些內容屬於我正在進行的學習與準備工作，而不是已完成的 KubeRay 程式碼貢獻。雖然目前尚未進入工程實作，但這些資料記錄了我在這段期間實際投入的學習內容與準備進度。
+### Pull Requests
 
-### 參考資料與下一步
+尚未記錄下一期 PR 活動。首次繳交範圍內的 fork 與準備工作已記錄在 September 報告。
 
-- [公開的 Kubernetes Fundamentals 學習參考](../September/references/kubernetes-fundamentals/README.md)
-- 繼續完成選定的課程與實作練習。
-- 閱讀 KubeRay contributor 文件並準備開發環境。
-- 完成初步學習後，先選擇一個小型 KubeRay issue 進行重現與驗證，再提出範圍明確的修正。
+### Reviewed PR／獨立驗證
+
+尚未記錄下一期審閱或驗證活動。首次報告的活動不會在此重複計算。
+
+### 其他貢獻
+
+尚未記錄下一期學習或其他貢獻。
+
+### 待驗證項目與下一步
+
+確認下一期報告日期後，依相同格式加入附日期的 PR、review、驗證結果與其他貢獻，並將待辦與已完成工作分開。
+
+### 參考資料
+
+- [September 報告與補充參考資料](../September/report.md)
